@@ -1,25 +1,24 @@
 import RPi.GPIO as GPIO
 import time
 
+GPIO_motion = 17
+GPIO_speaker = 26
+
+def alert(self):
+    alert = GPIO.PWM(GPIO_speaker, 1000)
+    alert.start(50)
+    time.sleep(3)
+    alert.stop()
+
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(17, GPIO.IN)
-GPIO.setup(26, GPIO.OUT)
+GPIO.setup(GPIO_motion, GPIO.IN)
+GPIO.setup(GPIO_speaker, GPIO.OUT)
+GPIO.add_event_detect(GPIO_motion, GPIO.RISING, callback=alert, bouncetime=2000)
 
 try:
-  while True:
-    print(GPIO.input(17))
+    while True:
+        time.sleep(1)
 
-    if GPIO.input(17) == 1:
-      GPIO.output(26, GPIO.HIGH)
-      time.sleep(0.005)
-      
-      GPIO.output(26, GPIO.LOW)
-      time.sleep(0.005)
-
-    time.sleep(1)
-    
 except KeyboardInterrupt:
-  pass
-
-GPIO.cleanup()
+    GPIO.cleanup()
 
