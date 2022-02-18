@@ -9,10 +9,10 @@ GPIO.setup(PIN, GPIO.OUT)
 try:
     while(True):
         GPIO.output(PIN, GPIO.HIGH)
-        time.sleep(0.01)
+        time.sleep(0.001)
 
         GPIO.output(PIN, GPIO.LOW)
-        time.sleep(0.01)
+        time.sleep(0.001)
 
 except KeyboardInterrupt:
     GPIO.cleanup()

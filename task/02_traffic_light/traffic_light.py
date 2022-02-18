@@ -10,14 +10,14 @@ import time
 
 
 # pythonにおける関数定義や条件分岐の例
-def hoge_print(num_range):
-  for num in range(num_range):
-    if num % 2 == 0 :
-      print(num)
-    elif num % 3 == 0 :
-      print(-num)
-    else :
-      print('hoge')
+#def hoge_print(num_range):
+#  for num in range(num_range):
+#    if num % 2 == 0 :
+#      print(num)
+#    elif num % 3 == 0 :
+#      print(-num)
+#    else :
+#      print('hoge')
 
 # メイン
 try:
